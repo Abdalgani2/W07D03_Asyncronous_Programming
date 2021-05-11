@@ -15,18 +15,36 @@ fs.writeFile(
     });
 const getPost = (id) => {
     const response = axios.get(
-        'https://jsonplaceholder.typicode.com/id/1'
+        `https://jsonplaceholder.typicode.com/${id}/1`
     );
     return response;
 };
 const getPostAsync = async (data) => {
     const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/id/1'
+        `https://jsonplaceholder.typicode.com/${data}/1`
     );
 };
 const appendToFile = (data) => {
-    fs.appendFile('data.txt', data)
-
+    fs.appendFile('message.txt', data, (err) => {
+        if (err) throw err;
+        console.log('The "data to append" was appended to file!');
+    });
 };
+const copyFile = (fileName) => {
+    fs.copyFile('data.txt', fileName)
+};
+const post = JSON.stringify({
+    title: "JavaScript Basics",
+    body: "This post contains information about javaScript ",
 
+    userId: 1,
+});
+
+const createPost = (user) => {
+    const response = axios.get('https://jsonplaceholder.typicode.com/posts')
+    return response;
+    app.post("/create/user",(req,res)=>{
+        
+    })
+};
 
