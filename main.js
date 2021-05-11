@@ -40,11 +40,25 @@ const post = JSON.stringify({
     userId: 1,
 });
 
-const createPost = (user) => {
-    const response = axios.get('https://jsonplaceholder.typicode.com/posts')
-    return response;
-    app.post("/create/user",(req,res)=>{
-        
+const createPost = (post) => {
+    app.post("/create/post",(req,res)=>{
+        const response = req.axios.get(`https://jsonplaceholder.typicode.com/${post}`)
+        return response;
+
     })
 };
+const newPost = JSON.stringify({
+    id: 1,
+    title: "Updated Title",
+    body: "Updated body",
+    userId: 1,
+  });
+  
+  const updatePost = (id, data) => {
+    // TODO: Your code here
+  };
+  const getUsers = async () => {
+    const post=await axios.get(`https://jsonplaceholder.typicode.com/post`);
+    return post;
+  };
 
